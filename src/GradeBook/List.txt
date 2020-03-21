@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace GradeBook
@@ -7,10 +7,15 @@ namespace GradeBook
     {
         static void Main(string[] args)
         {
-            var grades = new List<double>() { 10.21, 10.12, 10.52 };
+            // use of List - System.Collections.Generic
+            List<double> grades = new List<double>();
+            grades.Add(34.56);
+            
+            // use of var to create generic list
+            // list initialization syntax      ...........
+            var grades = new List<double>() { 10.221, 10.12, 10.51 };
             grades.Add(10.42);
-
-
+            
             var result = 0.0;
             foreach (double grade in grades)
             {
@@ -18,15 +23,6 @@ namespace GradeBook
             }
             Console.WriteLine($"No. of Grades: {grades.Count}");
             Console.WriteLine($"Average Grade: {result / grades.Count}");
-
-            if (args.Length > 0)
-            {
-                Console.WriteLine($"Hello, {args[0]}!!");
-            }
-            else
-            {
-                Console.WriteLine("Hello!");
-            }
 
         }
     }
