@@ -25,5 +25,8 @@ namespace GradeBook
             Console.WriteLine($"Average Grade: {result / grades.Count}");
 
         }
+
+        // use of formatting specifier
+        Console.WriteLine($"Average Grade: {result / grades.Count:N1}");
     }
 }
