@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 
 namespace GradeBook
 {
-    class Program
+    class Var
     {
         static void Main(string[] args)
         {
