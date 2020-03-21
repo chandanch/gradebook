@@ -6,19 +6,24 @@ namespace GradeBook
     {
         static void Main(string[] args)
         {
-            var x = 34.2;
-            var y = 10.3;
-            var result = x + y;
+            var numbers = new[] { 23.12, 34.13, 90.12 };
+
+            var result = 0.0;
+            foreach (double number in numbers)
+            {
+                result += number;
+            }
             Console.WriteLine(result);
 
-            if(args.Length > 0)
+            if (args.Length > 0)
             {
                 Console.WriteLine($"Hello, {args[0]}!!");
-            } else 
+            }
+            else
             {
                 Console.WriteLine("Hello!");
             }
-            
+
         }
     }
 }
