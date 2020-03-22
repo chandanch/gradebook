@@ -16,7 +16,9 @@ namespace GradeBook
             grades.Add(10.42);
 
             var result = 0.0;
+            // set to lowest possible value
             var highestGrade = double.MinValue;
+            // set to highest possible value
             var lowestGrade = double.MaxValue;
             foreach (double grade in grades)
             {

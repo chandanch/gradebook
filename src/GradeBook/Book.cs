@@ -14,7 +14,7 @@ namespace GradeBook
         public void AddGrade(double grade) 
         {
             grades.Add(grade);
-            Console.WriteLine($"Added Grade: {grade}");
+            // Console.WriteLine($"Added Grade: {grade}");
         }
 
         public List<double> grades;
