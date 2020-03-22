@@ -13,6 +13,17 @@ namespace GradeBook
         {
             grades = new List<double>();
         }
+
+        // constructor parameter
+        public Book(string name)
+        {
+            grades = new List<double>();
+            // this.name refers to field name in the class
+            // name(RHS) refers to local variable name in the constructor parameters
+            // initalizes with the default name
+            this.name = name;
+        }
+
         // adding behavior/method/member to a class
         public void AddGrade(double grade) 
         {
