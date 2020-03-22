@@ -8,15 +8,16 @@ namespace GradeBook.Tests
         [Fact]
         public void Test1()
         {
-            // arrange
+            // arrange - put together all the test data 
+            // arrange all the objects, variables and values that will be used
             var x = 5;
             var y = 5;
             var expected = 10;
 
-            // act
+            // act - do some computation, produce a result
             var actual = x + y;
 
-            // assert
+            // assert - Assert something i.e. about the value computed in the act section
             Assert.Equal(expected, actual);
         }
     }
