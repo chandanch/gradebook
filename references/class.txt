@@ -7,7 +7,8 @@ namespace GradeBook
     {
         // explict constructor declaration
         // constructor types: Implict Constructor & Explicit constructor
-        
+        // Implict Constructor - Created by C# by default that does default initialization
+        // Explict Constructor - User defined, used to control object initialization
         public Book()
         {
             grades = new List<double>();
