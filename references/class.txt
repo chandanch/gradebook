@@ -1,17 +1,17 @@
 using System;
-using System.Collections.Generic;
 
 namespace GradeBook 
 {
     
     class Book 
     {
+        // adding behavior/method/member to a class
         public void AddGrade(double grade) 
         {
-            grades.Add(grade);
             Console.WriteLine($"Added Grade: {grade}");
         }
 
+        // field definition
         List<double> grades;
 
     }
