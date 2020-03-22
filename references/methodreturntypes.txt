@@ -17,8 +17,11 @@ namespace GradeBook
             // Console.WriteLine($"Added Grade: {grade}");
         }
 
+        // Method returning a custom type - Statistics
         public Statistics GetStatistics() {
             
+            // all bits off - By default Avg, high, low part of the Statistics class will
+            // be initialized with 0.0 as default value
             var result = new Statistics();
             result.Highest = double.MinValue;
             result.Lowest = double.MaxValue;
