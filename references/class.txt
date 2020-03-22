@@ -5,13 +5,20 @@ namespace GradeBook
     
     class Book 
     {
+        // explict constructor declaration
+        // constructor types: Implict Constructor & Explicit constructor
+        
+        public Book()
+        {
+            grades = new List<double>();
+        }
         // adding behavior/method/member to a class
         public void AddGrade(double grade) 
         {
             Console.WriteLine($"Added Grade: {grade}");
         }
 
-        // field definition
+        // field definition or field in a class
         List<double> grades;
 
     }
