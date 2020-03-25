@@ -5,13 +5,13 @@ namespace GradeBook.Tests
 {
     public class TypeTests
     {
+        // Pass by reference
         [Fact]
         public void PassByReferencetoParameter() {
             var book1 = GetBook("Book1");
             SetNameByReference(ref book1, "New Book");
-            book1.Name = "Third Book";
 
-            Assert.Equal("Third Book", book1.Name);
+            Assert.Equal("New Book", book1.Name);
         }
 
         private void SetNameByReference(ref Book book, string name)
@@ -19,6 +19,7 @@ namespace GradeBook.Tests
             book = new Book(name);
         }
         
+        // pass by value
         [Fact]
         public void PassByValuetoParameter() {
             var book1 = GetBook("Book1");
@@ -40,6 +41,7 @@ namespace GradeBook.Tests
             Assert.Equal("New Book", book1.Name);
         }
 
+        // copy of Book object is passed to param name
         private void SetName(Book book, string name)
         {
             book.Name = name;
