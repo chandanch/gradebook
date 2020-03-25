@@ -8,16 +8,18 @@ namespace GradeBook.Tests
         [Fact]
         public void PassByReferencetoParameter() {
             var book1 = GetBook("Book1");
-            SetNameByReference(ref book1, "New Book");
+            SetNameByReference(out book1, "New Book");
             book1.Name = "Third Book";
 
             Assert.Equal("Third Book", book1.Name);
         }
 
-        private void SetNameByReference(ref Book book, string name)
+        private void SetNameByReference(out Book book, string name)
         {
             book = new Book(name);
         }
+
+        
         
         [Fact]
         public void PassByValuetoParameter() {
