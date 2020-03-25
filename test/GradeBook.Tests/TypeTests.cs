@@ -5,6 +5,25 @@ namespace GradeBook.Tests
 {
     public class TypeTests
     {
+        
+        [Fact]
+        public void ValueTypesPassByValue() {
+            var x = GetInt();
+            SetInt(ref x);
+
+            Assert.Equal(42, x);
+        }
+
+        private void SetInt(ref int x)
+        {
+            x = 42;
+        }
+
+        private int GetInt()
+        {
+            return 4;
+        }
+
         [Fact]
         public void PassByReferencetoParameter() {
             var book1 = GetBook("Book1");
@@ -19,8 +38,7 @@ namespace GradeBook.Tests
             book = new Book(name);
         }
 
-        
-        
+                
         [Fact]
         public void PassByValuetoParameter() {
             var book1 = GetBook("Book1");
