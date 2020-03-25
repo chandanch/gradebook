@@ -13,6 +13,9 @@ namespace GradeBook
         }
         public void AddGrade(double grade) 
         {
+            // if condition 
+            // In case of || if condition on LHS evaluates to true then statements within if will be executed
+            // RHS of the condition wil not be checked with || operator
             if (grade <= 100 && grade >= 0)
             {
                 grades.Add(grade);    
