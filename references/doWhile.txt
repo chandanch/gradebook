@@ -30,14 +30,16 @@ namespace GradeBook
             var result = new Statistics();
             result.Highest = double.MinValue;
             result.Lowest = double.MaxValue;
+            var index = 0;
 
-            for(var index = 0; index < grades.Count; index += 1)
+            // use of do while - Statements within do block will be executed atleast once
+            do 
             {
                 result.Highest = Math.Max(result.Highest, grades[index]);
                 result.Lowest = Math.Min(result.Lowest, grades[index]);
                 result.Average += grades[index];
                 index += 1;
-            }
+            } while (index < grades.Count);
             
             result.Average /=  grades.Count;
             return result;

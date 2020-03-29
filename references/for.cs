@@ -31,6 +31,8 @@ namespace GradeBook
             result.Highest = double.MinValue;
             result.Lowest = double.MaxValue;
 
+            // use of for loop
+            //      initializer      condition        operation
             for(var index = 0; index < grades.Count; index += 1)
             {
                 result.Highest = Math.Max(result.Highest, grades[index]);

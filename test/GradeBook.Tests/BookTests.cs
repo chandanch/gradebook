@@ -21,15 +21,5 @@ namespace GradeBook.Tests
             Assert.Equal(32.12, result.Lowest);
             Assert.Equal(33.19, result.Average, 2);
         }
-
-        [Fact]
-        public void VerifyValidGrades() {
-            var book = new Book("Book2");
-            book.AddGrade(123.43);
-
-            var result = book.GetStatistics();
-
-            Assert.Equal(0, 0);
-        }
     }
 }
