@@ -34,6 +34,7 @@ namespace GradeBook
             for(var index = 0; index < grades.Count; index += 1)
             {
                 if (grades[index] == 42.1) {
+                    // break - to break out of the loop
                     break;
                 }
                 result.Highest = Math.Max(result.Highest, grades[index]);
@@ -41,7 +42,7 @@ namespace GradeBook
                 result.Average += grades[index];
                 index += 1;
             }
-            
+            // breaks out of the loop and exectues the below statements
             result.Average /=  grades.Count;
             return result;
         }
