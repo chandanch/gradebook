@@ -33,9 +33,6 @@ namespace GradeBook
 
             for(var index = 0; index < grades.Count; index += 1)
             {
-                if (grades[index] == 42.1) {
-                    break;
-                }
                 result.Highest = Math.Max(result.Highest, grades[index]);
                 result.Lowest = Math.Min(result.Lowest, grades[index]);
                 result.Average += grades[index];

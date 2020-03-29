@@ -1,0 +1,103 @@
+using System;
+using System.Collections.Generic;
+
+namespace GradeBook 
+{
+    
+    public class Book 
+    {
+        public Book(string name)
+        {
+            grades = new List<double>();
+            Name = name;
+        }
+        public void AddGrade(double grade) 
+        {
+            if (grade <= 100 && grade >= 0)
+            {
+                grades.Add(grade);    
+            }
+            else 
+            {
+                Console.WriteLine("Invalid Input must be between 0 - 100");
+            }
+            
+            // Console.WriteLine($"Added Grade: {grade}");
+        }
+
+        public Statistics GetStatistics() {
+            
+            var result = new Statistics();
+            result.Highest = double.MinValue;
+            result.Lowest = double.MaxValue;
+
+            for(var index = 0; index < grades.Count; index += 1)
+            {
+                if (grades[index] == 42.1) {
+                    // break - to break out of the loop
+                    break;
+                }
+                result.Highest = Math.Max(result.Highest, grades[index]);
+                result.Lowest = Math.Min(result.Lowest, grades[index]);
+                result.Average += grades[index];
+                index += 1;
+            }
+            // breaks out of the loop and exectues the below statements
+            result.Average /=  grades.Count;
+            return result;
+        }
+
+         public Statistics GetStatistics() {
+            
+            var result = new Statistics();
+            result.Highest = double.MinValue;
+            result.Lowest = double.MaxValue;
+
+            for(var index = 0; index < grades.Count; index += 1)
+            {
+                if (grades[index] == 42.1) {
+                    // continue - skips execution of following lines and iterates over next element
+                    // increments the counter without executing the statements below continue
+                    continue;
+                }
+                // skips these lines
+                result.Highest = Math.Max(result.Highest, grades[index]);
+                result.Lowest = Math.Min(result.Lowest, grades[index]);
+                result.Average += grades[index];
+                index += 1;
+            }
+            
+            result.Average /=  grades.Count;
+            return result;
+        }
+
+        public Statistics GetStatistics() {
+            
+            var result = new Statistics();
+            result.Highest = double.MinValue;
+            result.Lowest = double.MaxValue;
+
+            for(var index = 0; index < grades.Count; index += 1)
+            {
+                if (grades[index] == 42.1) {
+                    // goto - goes to a specific line labelled by identifier
+                    goto done;
+                }
+                result.Highest = Math.Max(result.Highest, grades[index]);
+                result.Lowest = Math.Min(result.Lowest, grades[index]);
+                result.Average += grades[index];
+                index += 1;
+            }
+            
+            result.Average /=  grades.Count;
+            done:
+            // executes the below line
+            return result;
+        }
+        
+        private List<double> grades;
+        public string Name;
+
+
+    }
+}
