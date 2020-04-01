@@ -57,10 +57,28 @@ namespace GradeBook
                 result.Highest = Math.Max(result.Highest, grades[index]);
                 result.Lowest = Math.Min(result.Lowest, grades[index]);
                 result.Average += grades[index];
-                index += 1;
             }
             
             result.Average /=  grades.Count;
+
+            switch(result.Average) {
+                case var d when d >= 90:
+                    result.Letter = 'A';
+                    break;
+                case var d when d >= 80:
+                    result.Letter = 'B';
+                    break;
+                case var d when d >= 70:
+                    result.Letter = 'C';
+                    break;
+                case var d when d >= 60:
+                    result.Letter = 'D';
+                    break;
+                default:
+                    result.Letter = 'F';
+                    break;
+            }
+
             return result;
         }
         
