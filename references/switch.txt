@@ -50,6 +50,45 @@ namespace GradeBook
             // Console.WriteLine($"Added Grade: {grade}");
         }
 
+         public Statistics GetStatistics() {
+            
+            var result = new Statistics();
+            result.Highest = double.MinValue;
+            result.Lowest = double.MaxValue;
+
+            for(var index = 0; index < grades.Count; index += 1)
+            {
+                result.Highest = Math.Max(result.Highest, grades[index]);
+                result.Lowest = Math.Min(result.Lowest, grades[index]);
+                result.Average += grades[index];
+            }
+            
+            result.Average /=  grades.Count;
+
+            switch(result.Average) {
+                // pattern matching in switch 
+                // local variable can initialized that holds the value i.e passed to switch statement
+                // when keyword checks for the condition and evalutes to true
+                case var d when d >= 90:
+                    result.Letter = 'A';
+                    break;
+                case var d when d >= 80:
+                    result.Letter = 'B';
+                    break;
+                case var d when d >= 70:
+                    result.Letter = 'C';
+                    break;
+                case var d when d >= 60:
+                    result.Letter = 'D';
+                    break;
+                default:
+                    result.Letter = 'F';
+                    break;
+            }
+
+            return result;
+        }
+
         public Statistics GetStatistics() {
             
             var result = new Statistics();
