@@ -13,9 +13,12 @@ namespace GradeBook
         }
 
         public void AddLetterGrade(char letter) {
+            // use of switch statement
+            // every switch statement expression would match to a specific case, code within the matched case would be executed
             switch(letter) {
                 case 'A':
                     AddGrade(90);
+                    // used to terminate or break out of the case statement
                     break;
                 case 'B':
                     AddGrade(80);
@@ -26,6 +29,7 @@ namespace GradeBook
                 case 'D':
                     AddGrade(60);
                     break;
+                // if none of the cases matches then code within default will be executed
                 default:
                     AddGrade(0);
                     break;
