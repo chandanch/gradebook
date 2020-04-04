@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace GradeBook
@@ -13,6 +13,7 @@ namespace GradeBook
             // book.AddGrade(66.67);
             while (true) {
                 Console.WriteLine("Enter Grade or enter 'Q' to stop entering grades");
+                // read user input from keyboard
                 var input = Console.ReadLine();
                 if (input == "Q") {
                     break;
