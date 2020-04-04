@@ -8,7 +8,6 @@ namespace GradeBook
         static void Main(string[] args)
         {
             var book = new Book("Chandio GradeBook");
-            book.Name = "Chandio GradeBook";
             // book.AddGrade(60.12);
             // book.AddGrade(68.12);
             // book.AddGrade(66.67);

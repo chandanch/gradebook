@@ -18,3 +18,12 @@ public string Name
         }
     }
 }
+
+public string Name 
+{
+    // Auto Property or Auto Class property
+    // short-hand syntax of the above
+    get;
+    // value can be set only by the class members
+    private set;
+}
