@@ -1,0 +1,42 @@
+        /**
+        * Method Overloading - With Method Overloading two methods can have same name but
+        * the method signature must be different
+        * C# compilier would look not only the names but also the signature of the methods
+        * Signature of the method is nothing but Argument type and the no. of arguments
+        */
+
+        // same method name but accepts a single argument of type char
+        public void AddGrade(char letter) {
+            switch(letter) {
+                case 'A':
+                    AddGrade(90);
+                    break;
+                case 'B':
+                    AddGrade(80);
+                    break;
+                case 'C':
+                    AddGrade(70);
+                    break;
+                case 'D':
+                    AddGrade(60);
+                    break;
+                default:
+                    AddGrade(0);
+                    break;
+            }
+        }
+
+        // same method name but accepts a single argument of type double
+        public void AddGrade(double grade) 
+        {
+            if (grade <= 100 && grade >= 0)
+            {
+                grades.Add(grade);    
+            }
+            else 
+            {
+                throw new ArgumentException($"Invalid input for {nameof(grade)}"); 
+            }
+            
+            // Console.WriteLine($"Added Grade: {grade}");
+        }
