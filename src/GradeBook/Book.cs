@@ -10,6 +10,7 @@ namespace GradeBook
         {
             grades = new List<double>();
             Name = name;
+            Category = "";
         }
 
         public void AddGrade(char letter) {
@@ -42,7 +43,6 @@ namespace GradeBook
             {
                 throw new ArgumentException($"Invalid input for {nameof(grade)}"); 
             }
-            
             // Console.WriteLine($"Added Grade: {grade}");
         }
 
@@ -90,7 +90,7 @@ namespace GradeBook
 
         private List<double> grades;
         private string name;
-
+        readonly string Category = "Science";
 
     }
 }

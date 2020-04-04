@@ -1,0 +1,20 @@
+/**
+* readonly - readonly fields/properties can be intialized with a value only once
+* value can be initialized during the creation or within the constructor
+* readonly fields/properties cannot be changed/initialized within any methods of a class or anywhere within a class
+*/
+
+public class Book 
+    {
+        public Book(string name)
+        {
+            grades = new List<double>();
+            Name = name;
+            // value can only changed within the constructor
+            Category = "";
+        }
+
+        // creation and initialization of readonly variable 
+        readonly string Category = "Science";
+    }
+    
