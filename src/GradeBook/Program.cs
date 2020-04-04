@@ -8,9 +8,7 @@ namespace GradeBook
         static void Main(string[] args)
         {
             var book = new Book("Chandio GradeBook");
-            // book.AddGrade(60.12);
-            // book.AddGrade(68.12);
-            // book.AddGrade(66.67);
+            
             while (true) {
                 Console.WriteLine("Enter Grade or enter 'Q' to stop entering grades");
                 var input = Console.ReadLine();
@@ -37,11 +35,7 @@ namespace GradeBook
                 }
                 
             }
-            // Console.WriteLine("Enter input");
-            // var input = Console.ReadLine();
-            // Console.WriteLine($"User Input {input}");
-
-            // show statistics here
+            
             var stats = book.GetStatistics();
             Console.WriteLine($"{book.Name} details:\nCategory: {Book.CATEGORY}");
             Console.WriteLine($"Average Grade: { stats.Average:N1}");
