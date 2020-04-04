@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace GradeBook
@@ -18,28 +18,48 @@ namespace GradeBook
                     break;
                 } 
                 
+                // try - to check if an exception occurs here
                 try 
                 {
                     var grade = double.Parse(input);
                     book.AddGrade(grade);
                 }
+                // to catch the exception 
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    // re-throw the exception
+                    throw;
+                }
+                
+            }
+            
+             try 
+                {
+                    var grade = double.Parse(input);
+                    book.AddGrade(grade);
+                }
+                
+                // Handling a specific exception type - stacking catch statements to handle exceptions
                 catch(ArgumentException ex)
                 {
                     Console.WriteLine(ex.Message);
+                    // re-throw the exception
+                    throw;
                 }
                 catch(FormatException ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
+                // always gets executed regardless of whether an exception occured or not
                 finally 
                 {
                     Console.WriteLine("****");
                 }
                 
-            }
-            // Console.WriteLine("Enter input");
-            // var input = Console.ReadLine();
-            // Console.WriteLine($"User Input {input}");
+
+
+
 
             // show statistics here
             var stats = book.GetStatistics();
@@ -50,4 +70,20 @@ namespace GradeBook
 
         }
     }
+
+    public void AddGrade(double grade) 
+        {
+            if (grade <= 100 && grade >= 0)
+            {
+                grades.Add(grade);    
+            }
+            else 
+            {
+                // throws a custom exception using the 'throw' keyword 
+                // syntax: throw new <Exception_Type>
+                throw new ArgumentException($"Invalid input for {nameof(grade)}"); 
+            }
+            
+            // Console.WriteLine($"Added Grade: {grade}");
+        }
 }

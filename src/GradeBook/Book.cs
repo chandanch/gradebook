@@ -40,7 +40,7 @@ namespace GradeBook
             }
             else 
             {
-                Console.WriteLine("Invalid Input must be between 0 - 100");
+                throw new ArgumentException($"Invalid input for {nameof(grade)}"); 
             }
             
             // Console.WriteLine($"Added Grade: {grade}");
