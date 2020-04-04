@@ -1,0 +1,20 @@
+/**
+* Class Properties - Class Properties are members of a class similar to class fields
+* Class Properties consists of getter and setter that allows to set and get values to the property
+*/
+
+public string Name 
+{
+    get 
+    {
+        return name;
+    }
+    set 
+    {
+        if (!String.IsNullOrEmpty(value))
+        {
+            // implict variable that holds the value that was passed when setting the property value
+            name = value;
+        }
+    }
+}

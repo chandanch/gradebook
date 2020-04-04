@@ -8,6 +8,7 @@ namespace GradeBook
         static void Main(string[] args)
         {
             var book = new Book("Chandio GradeBook");
+            book.Name = "Chandio GradeBook";
             // book.AddGrade(60.12);
             // book.AddGrade(68.12);
             // book.AddGrade(66.67);
@@ -43,6 +44,7 @@ namespace GradeBook
 
             // show statistics here
             var stats = book.GetStatistics();
+            Console.WriteLine($"{book.Name} details:");
             Console.WriteLine($"Average Grade: { stats.Average:N1}");
             Console.WriteLine($"Highest Grade: { stats.Highest }");
             Console.WriteLine($"Lowest Grade: { stats.Lowest }");
