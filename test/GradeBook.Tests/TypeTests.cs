@@ -1,10 +1,50 @@
 using System;
 using Xunit;
+using System.Collections.Generic;
 
 namespace GradeBook.Tests
 {
+    public delegate string WriteLogDelete(string logMessage);
+    public delegate double AddNumbersDelegate(List<double> numbers);
+
     public class TypeTests
     {
+
+        [Fact]
+        public void WriteLogDelegatePointToMethod() {
+            WriteLogDelete log;
+            log = new WriteLogDelete(ReturnLogMessage);
+
+            var result = log("Hello Delegate!");
+
+            Assert.Equal("Hello Delegate!", result);
+        }
+
+        [Fact]
+        public void AddNumbersDelegateTest() {
+            AddNumbersDelegate addNumbers;
+            addNumbers = AddNumbers;
+            var numbersList = new List<double>();
+            numbersList.Add(10.23);
+            numbersList.Add(11);
+            numbersList.Add(10);
+
+            var result = addNumbers(numbersList);
+
+            Assert.Equal(31.23, result);
+        }
+
+        string ReturnLogMessage(string logMessage) {
+            return logMessage;
+        }
+
+        double AddNumbers(List<double> numbers) {
+            var result = 0.0;
+            foreach(var number in numbers) {
+                result += number;
+            }
+            return result;
+        }
         
         [Fact]
         public void ValueTypesPassByValue() 
