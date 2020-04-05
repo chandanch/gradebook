@@ -1,0 +1,51 @@
+/*
+* Delegates - Delegates allows us to define a new type
+* Delegates helps us to define the shape and structure for a method without the actual implementation
+* Methods that implement the delegate must have the same structure and shape i.e. 
+* - same return type, same no. of arguments, same type of arguments
+* syntax: <Access_modifier> delegate <Return_Type> <Delegate_Name>(<params>....)
+*/
+
+// creating delegates
+public delegate string WriteLogDelete(string logMessage);
+public delegate double AddNumbersDelegate(List<double> numbers);
+
+// Methods of Delegate type
+string ReturnLogMessage(string logMessage) {
+    return logMessage;
+}
+
+double AddNumbers(List<double> numbers) {
+    var result = 0.0;
+    foreach(var number in numbers) {
+        result += number;
+    }
+    return result;
+}
+
+[Fact]
+public void WriteLogDelegatePointToMethod() {
+    WriteLogDelete log;
+    // instantiate the delegate
+    // reference/ point the delegate to a method
+    log = new WriteLogDelete(ReturnLogMessage);
+
+    var result = log("Hello Delegate!");
+
+    Assert.Equal("Hello Delegate!", result);
+}
+
+[Fact]
+public void AddNumbersDelegateTest() {
+    AddNumbersDelegate addNumbers;
+    // short-hand syntax for instantiate and to reference the delegate to a method
+    addNumbers = AddNumbers;
+    var numbersList = new List<double>();
+    numbersList.Add(10.23);
+    numbersList.Add(11);
+    numbersList.Add(10);
+
+    var result = addNumbers(numbersList);
+
+    Assert.Equal(31.23, result);
+}
