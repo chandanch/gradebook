@@ -10,14 +10,19 @@ namespace GradeBook.Tests
     public class TypeTests
     {
 
+        int count = 0;
+
         [Fact]
         public void WriteLogDelegatePointToMethod() {
             WriteLogDelete log;
-            log = new WriteLogDelete(ReturnLogMessage);
+            log = ReturnLogMessage;
+            log += ReturnLogMessage;
+            log += GiveLogMessage;
 
             var result = log("Hello Delegate!");
+            Console.WriteLine($"Delegate {result}");
 
-            Assert.Equal("Hello Delegate!", result);
+            Assert.Equal(3, count);
         }
 
         [Fact]
@@ -35,7 +40,13 @@ namespace GradeBook.Tests
         }
 
         string ReturnLogMessage(string logMessage) {
+            count++;
             return logMessage;
+        }
+
+        string GiveLogMessage(string logMessage) {
+            count++;
+            return logMessage.ToLower();
         }
 
         double AddNumbers(List<double> numbers) {

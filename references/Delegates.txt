@@ -4,6 +4,7 @@
 * Methods that implement the delegate must have the same structure and shape i.e. 
 * - same return type, same no. of arguments, same type of arguments
 * syntax: <Access_modifier> delegate <Return_Type> <Delegate_Name>(<params>....)
+* Multicast Delegate -  With multicast delegate we can reference multiple methods and call them using delegate variable
 */
 
 // creating delegates
@@ -48,4 +49,23 @@ public void AddNumbersDelegateTest() {
     var result = addNumbers(numbersList);
 
     Assert.Equal(31.23, result);
+}
+
+int count = 0;
+
+[Fact]
+public void WriteLogDelegatePointToMethod() {
+    WriteLogDelete log;
+    // use of multicast delegate
+    // referencing multiple methods to the same delegate
+    log = ReturnLogMessage;
+    log += ReturnLogMessage;
+    log += GiveLogMessage;
+
+    // ReturnLogMessage method will be called twice, GiveLogMessage will be called once
+    // With multicast delegate we can reference multiple methods and call them using delegate variable
+    var result = log("Hello Delegate!");
+    Console.WriteLine($"Delegate {result}");
+
+    Assert.Equal(3, count);
 }
