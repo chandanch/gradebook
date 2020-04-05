@@ -8,6 +8,8 @@ namespace GradeBook
         static void Main(string[] args)
         {
             var book = new Book("Chandio GradeBook");
+
+            book.GradeAdded += onGradeAdded;
             
             while (true) {
                 Console.WriteLine("Enter Grade or enter 'Q' to stop entering grades");
@@ -43,6 +45,11 @@ namespace GradeBook
             Console.WriteLine($"Lowest Grade: { stats.Lowest }");
             Console.WriteLine($"Grade: {stats.Letter}");
 
+        }
+
+        static void onGradeAdded(object sender, EventArgs e)
+        {
+            Console.WriteLine("New Grade Added!");
         }
     }
 }
