@@ -1,0 +1,48 @@
+/**
+* Events are special types of functions that gets triggered on some user action
+* Examples - Button click, mouse movement etc
+* To create an event in c# we must create a delegate first
+* Once the delegate define the delete, we make that delegate as event type using  'event' keyword
+*/
+
+// Defining a delegate, delegate of event type must accept 2 paramters:
+// sender - who is firing the event or event generator
+// EventArgs - Argugments that are passed to the event such as current value been passed etc.
+public delegate void GradeAddedDelegate(object sender, EventArgs args);
+
+public void AddGrade(double grade) 
+{
+    if (grade <= 100 && grade >= 0)
+    {
+        grades.Add(grade);   
+        if (GradeAdded != null)
+        {
+            // triggering the event using the Event name
+            GradeAdded(this, new EventArgs()); 
+        }
+        
+    }
+    else 
+    {
+        throw new ArgumentException($"Invalid input for {nameof(grade)}"); 
+    }
+    // Console.WriteLine($"Added Grade: {grade}");
+}
+
+// making the delegate as event usng `event` keyword
+public event GradeAddedDelegate GradeAdded;
+
+/////////
+/// Program.CS
+
+// implementing the delegate - this gets called on adding a new grade
+static void onGradeAdded(object sender, EventArgs e)
+{
+    Console.WriteLine("New Grade Added!");
+}
+
+
+var book = new Book("Chandio GradeBook");
+
+// subscribing to the event
+book.GradeAdded += onGradeAdded;
