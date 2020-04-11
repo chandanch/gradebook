@@ -1,65 +1,45 @@
-using System;
-using System.Collections.Generic;
+/**
+* Interface allows us to create pure definitions for a specifc type
+* Interface does not contain any implementations
+* Interface allows us to describe a specific type
+* Syntax: <access_modifier> interface <interface_name>
+*/
 
-namespace GradeBook 
+// creation of interface
+public interface IBook
 {
-    public delegate void GradeAddedDelegate(object sender, EventArgs args);
+    // interface does not contain any implementation for a method
+    void AddGrade(double grade);
+    // defining the method with its type
+    Statistics GetStatistics();
+    string Name {
+        get;
+    }
+    event GradeAddedDelegate GradeAdded;
+}
 
-    public interface IBook
+// class implementing an interface
+// A class could implement multiple interfaces
+public abstract class Book : NamedObject, IBook
+{
+    public Book(string name) : base(name)
     {
-        void AddGrade(double grade);
-        Statistics GetStatistics();
-        string Name {
-            get;
-        }
-        event GradeAddedDelegate GradeAdded;
     }
 
-    public abstract class Book : NamedObject, IBook
+    // virtual keyword is similar to abstract which defines the method as virtual
+    public virtual event GradeAddedDelegate GradeAdded;
+
+    public abstract void AddGrade(double grade);
+
+    public virtual Statistics GetStatistics()
     {
-        public Book(string name) : base(name)
-        {
-        }
-
-        public virtual event GradeAddedDelegate GradeAdded;
-
-        public abstract void AddGrade(double grade);
-
-        public virtual Statistics GetStatistics()
-        {
-            throw new NotImplementedException();
-        }
+        throw new NotImplementedException();
     }
-    
-    public class InMemoryBook : Book
-    {
-        public InMemoryBook(string name) : base(name)
-        {
-            grades = new List<double>();
-            Name = name;
-        }
+}
 
-        public void AddGrade(char letter) {
-            switch(letter) {
-                case 'A':
-                    AddGrade(90);
-                    break;
-                case 'B':
-                    AddGrade(80);
-                    break;
-                case 'C':
-                    AddGrade(70);
-                    break;
-                case 'D':
-                    AddGrade(60);
-                    break;
-                default:
-                    AddGrade(0);
-                    break;
-            }
-        }
-
-        public override void AddGrade(double grade) 
+public class InMemoryBook : Book
+{
+    public override void AddGrade(double grade) 
         {
             if (grade <= 100 && grade >= 0)
             {
@@ -114,9 +94,4 @@ namespace GradeBook
 
             return result;
         }
-
-        private List<double> grades;
-        public const string CATEGORY = "Science";
-
-    }
 }
