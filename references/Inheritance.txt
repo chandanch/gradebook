@@ -25,3 +25,35 @@ public class Book : NamedObject
         Name = name;
     }
 }
+
+// base class with a constructor
+// while creating an instance of the this base class we need to pass a value to the constructor
+public class NamedObject
+{
+    public NamedObject(string name)
+    {
+        Name = name;
+    }
+
+    public string Name
+    {
+        get;
+        set;
+    }
+}
+
+// derving the members from base class
+// here we will need to specify explictly on how we are going to create the base class when a new instance of Book is created
+// since Book class is derived from NamedObject we need to reference the base class and its constructor
+public class Book : NamedObject
+{
+    // 'base' keyword references the base class
+    // 'base()' points to the base class constructor
+    // 'base()' within the parantheses of the base we can pass an parameters which is obtained once the dervied class Book is created
+    // i.e. whatever the name parameter of Book constructor is passed to the base class constructor
+    public Book(string name) : base(name)
+    {
+        grades = new List<double>();
+        Name = name;
+    }
+}
