@@ -57,3 +57,19 @@ public class Book : NamedObject
         Name = name;
     }
 }
+
+// Every class derives from System.Object
+// Object is the base class for all Classes that we create in our project
+public class NamedObject : System.Object
+{
+    public NamedObject(string name)
+    {
+        Name = name;
+    }
+
+    public string Name
+    {
+        get;
+        set;
+    }
+}
