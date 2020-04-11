@@ -24,8 +24,20 @@ public class DiskBook : Book
         writer.Close();
     }
 
-    public override Statistics GetStatistics()
+   public override void AddGrade(double grade)
     {
-        throw new NotImplementedException();
+        
+        // 'using' provides an overloaded method that works with an IDisposable interface
+        // any object that implements an IDisposable interface can be wrapped within using(){...} statement
+        // with using statement C# compiler ensures that writer.Dispose() is called automatically and that
+        // all the exceptions within the using statement are handled
+        using(var writer = File.AppendText($"{Name}.txt"))
+        {
+            writer.WriteLine(grade);
+            if(GradeAdded != null)
+            {
+                GradeAdded(this, new EventArgs());
+            }
+        }
     }
 }
