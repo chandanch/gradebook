@@ -86,9 +86,9 @@ namespace GradeBook.Tests
             Assert.Equal("Third Book", book1.Name);
         }
 
-        private void SetNameByReference(out Book book, string name)
+        private void SetNameByReference(out InMemoryBook book, string name)
         {
-            book = new Book(name);
+            book = new InMemoryBook(name);
         }
 
                 
@@ -101,9 +101,9 @@ namespace GradeBook.Tests
             Assert.Equal("Book1", book1.Name);
         }
 
-        private void GetSetName(Book book, string name)
+        private void GetSetName(InMemoryBook book, string name)
         {
-            book = new Book(name);
+            book = new InMemoryBook(name);
         }
         
         [Fact]
@@ -114,7 +114,7 @@ namespace GradeBook.Tests
             Assert.Equal("New Book", book1.Name);
         }
 
-        private void SetName(Book book, string name)
+        private void SetName(InMemoryBook book, string name)
         {
             book.Name = name;
         }
@@ -134,7 +134,7 @@ namespace GradeBook.Tests
         [Fact]
         public void TwoVarsReferenceSameObject() 
         {
-            var book1 = new Book("Book1");
+            var book1 = new InMemoryBook("Book1");
             var book2 = book1;
 
             Assert.Same(book1, book2);
@@ -166,9 +166,9 @@ namespace GradeBook.Tests
             // return parameter;
         }
 
-        Book GetBook(string name)
+        InMemoryBook GetBook(string name)
         {
-            return new Book(name);
+            return new InMemoryBook(name);
         }
     }
 }

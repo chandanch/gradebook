@@ -1,0 +1,49 @@
+/**
+* Abstract Class - Abstract class allows us to define abstract members
+* Abstract members could be methods that does not have any implementation
+* implementation will be provided by the class that dervies from the abstract class
+* Abstract class is one way to achieve polymorphism
+* Syntax: <access_modifier> abstract class <class_name>
+*/
+
+// creating an abstract class
+// In this scenario abstract class is derived from another class and has a constructor
+public abstract class Book : NamedObject
+{
+    public Book(string name) : base(name)
+    {
+    }
+
+    // abstract method
+    public abstract void AddGrade(double grade);
+}
+
+// class derived from abstract class
+public class InMemoryBook : Book
+{
+    public InMemoryBook(string name) : base(name)
+    {
+        grades = new List<double>();
+        Name = name;
+    }
+    
+    // only the abstract and virtual methods can be overriden in derived class
+    // derived class must always implement or overide the abstract method
+    public override void AddGrade(double grade) 
+    {
+        if (grade <= 100 && grade >= 0)
+        {
+            grades.Add(grade);   
+            if (GradeAdded != null)
+            {
+                GradeAdded(this, new EventArgs()); 
+            }
+            
+        }
+        else 
+        {
+            throw new ArgumentException($"Invalid input for {nameof(grade)}"); 
+        }
+        // Console.WriteLine($"Added Grade: {grade}");
+    }
+}
