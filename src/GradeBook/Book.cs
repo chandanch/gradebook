@@ -5,7 +5,7 @@ namespace GradeBook
 {
     public delegate void GradeAddedDelegate(object sender, EventArgs args);
     
-    public class Book 
+    public class Book : NamedObject
     {
         public Book(string name)
         {
@@ -87,12 +87,6 @@ namespace GradeBook
             }
 
             return result;
-        }
-
-        public string Name 
-        {
-           get;
-           set;
         }
 
         private List<double> grades;

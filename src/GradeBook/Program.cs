@@ -10,7 +10,7 @@ namespace GradeBook
             var book = new Book("Chandio GradeBook");
 
             book.GradeAdded += onGradeAdded;
-            
+
             while (true) {
                 Console.WriteLine("Enter Grade or enter 'Q' to stop entering grades");
                 var input = Console.ReadLine();

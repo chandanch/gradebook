@@ -1,0 +1,27 @@
+/**
+* Inheritance allows us to define a base class with which the members of a base class such allows
+* methods, properties and fields can be inherited to the class that derives from the base class
+* Syntax for inheriting from base class
+* <base_class_name> : <derived_class_name>
+*/
+
+// base class
+public class NamedObject
+{
+    public string Name
+    {
+        get;
+        set;
+    }
+}
+
+
+// Derving or inheriting the property Name from Base class
+public class Book : NamedObject
+{
+    public Book(string name)
+    {
+        grades = new List<double>();
+        Name = name;
+    }
+}
