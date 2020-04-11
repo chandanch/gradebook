@@ -7,13 +7,13 @@ namespace GradeBook
     {
         static void Main(string[] args)
         {
-            var book = new InMemoryBook("Chandio GradeBook");
+            IBook book = new DiskBook("Chandio GradeBook");
 
             book.GradeAdded += onGradeAdded;
             EnterGrades(book);
 
             var stats = book.GetStatistics();
-            Console.WriteLine($"{book.Name} details:\nCategory: {InMemoryBook.CATEGORY}");
+            Console.WriteLine($"{book.Name} details:");
             Console.WriteLine($"Average Grade: { stats.Average:N1}");
             Console.WriteLine($"Highest Grade: { stats.Highest }");
             Console.WriteLine($"Lowest Grade: { stats.Lowest }");

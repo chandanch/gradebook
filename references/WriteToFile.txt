@@ -1,0 +1,31 @@
+/**
+* File Class provides methods to
+* 1. Create a file  2. Open a file  3. Write to a file as a new line
+* Note: Once the file is opened for read/write it must be closed explicitly using Close() or using Dispose()
+*/
+
+public class DiskBook : Book
+{
+    public DiskBook(string name) : base(name)
+    {
+    }
+
+    public override event GradeAddedDelegate GradeAdded;
+
+    public override void AddGrade(double grade)
+    {
+        
+        // create file if not exists with a custom file name
+        // Open the file
+        // AppendText() exposes an StreamWriter with which we can write to the file
+        var writer = File.AppendText($"{Name}.txt");
+        // writes the new line with the file
+        writer.WriteLine(grade);
+        writer.Close();
+    }
+
+    public override Statistics GetStatistics()
+    {
+        throw new NotImplementedException();
+    }
+}
