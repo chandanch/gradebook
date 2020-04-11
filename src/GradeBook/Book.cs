@@ -71,36 +71,11 @@ namespace GradeBook
         public override Statistics GetStatistics() {
             
             var result = new Statistics();
-            result.Highest = double.MinValue;
-            result.Lowest = double.MaxValue;
 
             for(var index = 0; index < grades.Count; index += 1)
             {
-                result.Highest = Math.Max(result.Highest, grades[index]);
-                result.Lowest = Math.Min(result.Lowest, grades[index]);
-                result.Average += grades[index];
+                result.Add(grades[index]);
             }
-            
-            result.Average /=  grades.Count;
-
-            switch(result.Average) {
-                case var d when d >= 90:
-                    result.Letter = 'A';
-                    break;
-                case var d when d >= 80:
-                    result.Letter = 'B';
-                    break;
-                case var d when d >= 70:
-                    result.Letter = 'C';
-                    break;
-                case var d when d >= 60:
-                    result.Letter = 'D';
-                    break;
-                default:
-                    result.Letter = 'F';
-                    break;
-            }
-
             return result;
         }
 
