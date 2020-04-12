@@ -1,0 +1,27 @@
+/*
+* Non-null reference types: By default reference types are non-nullable meaning that
+* it cannot contain null values. A field/property of a class must always hold an reference of the object or 
+* point to an object
+* This is one of the features in c# compiler 8 version which helps us to prevent NullReference exceptions
+* NullReference exception occurs when an variable/field does not point to an actual object
+* Compiler would highlight the possible fields that contain null values
+* To tell the compiler explicity that the variable or field can hold either an object or null value we use '?'next to type
+*/
+
+class Program
+    {
+        static void Main(string[] args)
+        {
+            // variable book can hold either null value or an instance of InMemoryBook or object
+            Book? book = new InMemoryBook("Chandio GradeBook");
+            EnterGrades(book);
+        }
+
+        // EnterGrades() can either accept null or an object
+        private static void EnterGrades(IBook? book)
+        {
+            // ..........
+        }
+
+
+    }

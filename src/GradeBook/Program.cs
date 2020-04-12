@@ -7,7 +7,7 @@ namespace GradeBook
     {
         static void Main(string[] args)
         {
-            IBook book = new DiskBook("Chandio GradeBook");
+            Book? book = new InMemoryBook("Chandio GradeBook");
 
             book.GradeAdded += onGradeAdded;
             EnterGrades(book);
@@ -21,7 +21,7 @@ namespace GradeBook
 
         }
 
-        private static void EnterGrades(IBook book)
+        private static void EnterGrades(IBook? book)
         {
             while (true)
             {
